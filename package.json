@@ -1,0 +1,31 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec \"tsc -b && node\" dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shyaminda/safeDeploy-demo-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shyaminda/safeDeploy-demo-application/issues"
+  },
+  "homepage": "https://github.com/Shyaminda/safeDeploy-demo-application#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
+}
