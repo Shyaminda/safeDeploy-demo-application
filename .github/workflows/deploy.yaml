@@ -42,10 +42,12 @@ jobs:
       - name: Clone GitOps repo
         run: |
           git clone https://${{ secrets.GITOPS_PAT }}@github.com/${{ env.OWNER_LOWER }}/safeDeploy-environment.git gitops
+
       - name: Update image in GitOps manifests
         run: |
-          cd gitops/apps/demo-app
+          cd gitops/production-environment/apps/demo-app
           sed -i "s|image: .*|image: ghcr.io/${{ env.OWNER_LOWER }}/demo-app:${{ env.IMAGE_TAG }}|" deployment.yaml
+
       - name: Commit and push GitOps changes
         run: |
           cd gitops
