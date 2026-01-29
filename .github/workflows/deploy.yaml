@@ -43,9 +43,15 @@ jobs:
         run: |
           git clone https://${{ secrets.GITOPS_PAT }}@github.com/${{ env.OWNER_LOWER }}/safeDeploy-environment.git gitops
 
+      - name: Debug GitOps repo structure
+        run: |
+          cd gitops
+          echo "=== GitOps repo tree ==="
+          find . -maxdepth 4 -type d
+
       - name: Update image in GitOps manifests
         run: |
-          cd gitops/production-environment/apps/demo-app
+          cd gitops/apps/demo-app
           sed -i "s|image: .*|image: ghcr.io/${{ env.OWNER_LOWER }}/demo-app:${{ env.IMAGE_TAG }}|" deployment.yaml
 
       - name: Commit and push GitOps changes
