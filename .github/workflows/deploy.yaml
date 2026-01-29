@@ -18,18 +18,18 @@ jobs:
       - name: Login to Safe Registry
         run: |
           echo "${{ secrets.SAFE_REGISTRY_PASSWORD }}" | \
-          docker login registry.safe.internal \
+          docker login 100.87.63.125:32000 \
             -u "${{ secrets.SAFE_REGISTRY_USERNAME }}" --password-stdin
 
       - name: Build Docker image
         run: |
           docker build \
-            -t registry.safe.internal/demo-app:${{ env.IMAGE_TAG }} \
+            -t 100.87.63.125:32000/demo-app:${{ env.IMAGE_TAG }} \
             .
 
       - name: Push image to safe registry
         run: |
-          docker push registry.safe.internal/demo-app:${{ env.IMAGE_TAG }}
+          docker push 100.87.63.125:32000/demo-app:${{ env.IMAGE_TAG }}
 
       - name: Clone GitOps repo
         run: |
