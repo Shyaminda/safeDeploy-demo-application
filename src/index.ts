@@ -5,7 +5,10 @@ const app = express();
 let count = 0;
 
 app.get('/health', async (_req, res) => {
-  await new Promise((r) => setTimeout(r, 3000));
+  if (process.env.SLOW_MODE === 'true') {
+    await new Promise((r) => setTimeout(r, 3000));
+  }
+
   res.status(200).json({ status: 'ok - Application reached' });
 });
 
