@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -b",
     "start": "node dist/bin.js",
-    "dev": "nodemon --exec \"tsc -b && node\" dist/src/bin.js",
+    "dev": "nodemon --exec \"tsc -b && node\" dist/bin.js",
     "test": "vitest"
   },
   "repository": {
