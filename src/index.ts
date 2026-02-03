@@ -5,9 +5,7 @@ const app = express();
 let count = 0;
 
 app.get('/health', async (_req, res) => {
-  if (process.env.SLOW_MODE === 'true') {
-    await new Promise((r) => setTimeout(r, 3000));
-  }
+  await new Promise((r) => setTimeout(r, 3000));
 
   res.status(200).json({ status: 'ok - Application reached' });
 });
@@ -39,4 +37,3 @@ app.get('/sum', (_req, res) => {
 
 
 export {app, count};
-//
