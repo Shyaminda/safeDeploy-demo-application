@@ -1,6 +1,18 @@
 import express from 'express';
+import { httpRequestDuration, httpRequestsTotal, register } from './metrics.js';
 
 const app = express();
+
+app.use(express.json());
+
+app.use((_req, res, next) => {
+  const end = httpRequestDuration.startTimer();
+  res.on('finish', () => {
+    end();
+    httpRequestsTotal.inc({ status: res.statusCode.toString() });
+  });
+  next();
+});
 
 let count = 0;
 
@@ -33,5 +45,9 @@ app.get('/sum', (_req, res) => {
   });
 });
 
+app.get("/metrics", async (_req, res) => {
+  res.set("Content-Type", register.contentType);
+  res.end(await register.metrics());
+});
 
 export {app, count};
