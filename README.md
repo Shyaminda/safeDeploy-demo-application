@@ -45,7 +45,6 @@ npm run dev
 npm test -- --run
 ```
 
-<<<<<<< codex/add-readme-for-repository-9j1f1n
 ## ☸️ Kubernetes runtime notes
 
 This service is intended to run in a Kubernetes environment as a Pod (for example, as a canary and/or stable workload behind a Service).
@@ -77,8 +76,6 @@ npm run build
 
 In a GitOps setup, deployment state is tracked in Git, and the cluster continuously reconciles to the desired manifests that reference the image stored in GHCR.
 
-=======
->>>>>>> main
 ## 🐌 Manual slow deployment test (current workaround)
 
 > ℹ️ SafeDeploy is still under active development, so slow rollout behavior is tested manually for now.
