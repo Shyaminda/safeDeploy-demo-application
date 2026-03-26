@@ -45,6 +45,40 @@ npm run dev
 npm test -- --run
 ```
 
+<<<<<<< codex/add-readme-for-repository-9j1f1n
+## ☸️ Kubernetes runtime notes
+
+This service is intended to run in a Kubernetes environment as a Pod (for example, as a canary and/or stable workload behind a Service).
+
+When deployed to Kubernetes, the endpoints in this README can be used for:
+
+- health verification (`/health`)
+- failure-path validation (`/error`)
+- synthetic latency checks (`/slow`)
+- metrics scraping (`/metrics`)
+
+## 🔁 CI/CD pipeline notes
+
+This repository is designed to fit into a CI/CD workflow where pipelines typically:
+
+1. install dependencies
+2. run tests
+3. build the TypeScript bundle
+4. build and push a container image to **GHCR** (GitHub Container Registry)
+5. publish/deploy via a **GitOps** flow to Kubernetes
+
+A common command sequence in CI is:
+
+```bash
+npm ci
+npm test -- --run
+npm run build
+```
+
+In a GitOps setup, deployment state is tracked in Git, and the cluster continuously reconciles to the desired manifests that reference the image stored in GHCR.
+
+=======
+>>>>>>> main
 ## 🐌 Manual slow deployment test (current workaround)
 
 > ℹ️ SafeDeploy is still under active development, so slow rollout behavior is tested manually for now.
