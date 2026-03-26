@@ -42,7 +42,7 @@ npm run dev
 ## 🧪 Testing
 
 ```bash
-npm test -- --run
+npm run test
 ```
 
 ## ☸️ Kubernetes runtime notes
