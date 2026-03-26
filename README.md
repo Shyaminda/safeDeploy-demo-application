@@ -1,6 +1,6 @@
 # 🚀 safeDeploy demo application
 
-A minimal TypeScript + Express service used to demonstrate **SafeDeploy** patterns such as health checks, controlled failures, synthetic latency, and Prometheus metrics.
+A minimal TypeScript + Express service used to demonstrate **SafeDeploy** patterns such as health checks, controlled failures, synthetic latency, and Prometheus metrics when running on kubernetes safedeploy environment.
 
 ## ✨ Features
 
